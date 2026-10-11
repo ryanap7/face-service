@@ -1,0 +1,14 @@
+services:
+  face-service:
+    build: .
+    container_name: face-service
+    ports:
+      - "8100:8100"
+    env_file:
+      - .env
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
